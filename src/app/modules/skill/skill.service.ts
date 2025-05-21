@@ -1,4 +1,3 @@
-
 import { Skill } from './skill.model';
 import { TSkill } from './skill.interface';
 
@@ -8,7 +7,7 @@ const createSkillIntoDB = async (payload: TSkill) => {
 };
 
 const getAllSkills = async () => {
-  const result = await Skill.find();
+  const result = await Skill.find().sort({ createdAt: -1 });
   return result;
 };
 
@@ -20,5 +19,5 @@ const deleteSkill = async (id: string) => {
 export const SkillServices = {
   createSkillIntoDB,
   deleteSkill,
-  getAllSkills
+  getAllSkills,
 };
